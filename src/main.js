@@ -1,8 +1,9 @@
-
 import 'babel-polyfill';
+import uploader from './uploader';
 
 //promesas
 const main = async ()=> {
+  uploader('.input-submit', '.images-list');
   const videoContainer = document.querySelector('.js-video');
   const canvas = document.querySelector('.js-canvas');
   const context = canvas.getContext('2d');
