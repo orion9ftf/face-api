@@ -1,0 +1,8 @@
+#dsstore
+.DS_Store
+
+#secrets!
+.env
+
+#node
+node_modules
