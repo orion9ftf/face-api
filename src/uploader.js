@@ -29,6 +29,16 @@ const uploader = (submitSelector, imagesListSelector)=> {
       const label = document.createElement('label');
       const imageElement = document.createElement('img');
 
+      //status
+      const deleteLink = document.createElement('a');
+      imageContainer.classList.add('image-container');
+      deleteLink.classList.add('cerrar');
+      imageElement.classList.add('card-img-top');
+      imageContainer.id = image.id;
+      deleteLink.href = '#';
+      deleteLink.innerText = 'x';
+
+      //status 
     });
   }
 
