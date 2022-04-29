@@ -45,7 +45,7 @@ const uploader = (submitSelector, imagesListSelector)=> {
 
     read().forEach(async image =>{
       const imageContainer = document.createElement('div');
-      const label = document.createElement('label');
+      const label = document.createElement('input');
       const imageElement = document.createElement('img');
 
       //status
