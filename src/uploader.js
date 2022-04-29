@@ -35,6 +35,12 @@ const uploader = (submitSelector, imagesListSelector)=> {
 
   //formar el DOM de las img
   const syncImages = () => {
+
+    //reiniciar valores | evita que se duplique
+    while(imagesList.firstChild) {
+      imagesList.removeChild(imagesList.firstChild);
+    }
+
     read().forEach(async image =>{
       const imageContainer = document.createElement('div');
       const label = document.createElement('label');
