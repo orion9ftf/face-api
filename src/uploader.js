@@ -1,4 +1,5 @@
 import { read } from './localStorage';
+import { write } from './localStorage';
 //carga de archivos
 import { v4 as uuidv4 } from 'uuid'; //id del usuario
 
@@ -23,9 +24,9 @@ const uploader = (submitSelector, imagesListSelector)=> {
 
   submit.addEventListener('change', async e => {
     //console.log('change funciona!')
-    console.log(await uploadFile(e.target.files[0]));
+    const fileEntry = await uploadFile(e.target.files[0]);
     
-    console.log(read());
+    console.log(write({ path: 'ejemplo1' },{ path: 'ejemplo2' }));
   })
   //eventos
 }
