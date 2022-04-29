@@ -51,7 +51,7 @@ const uploader = (submitSelector, imagesListSelector)=> {
 
       //status classList
 
-      imageElement.src = '';
+      imageElement.src = await fileEntryPathToObjectUrl(image.path);
       label.value = image.name;
 
       imageContainer.appendChild(deleteLink);
