@@ -1,5 +1,7 @@
 import { read } from './localStorage';
 import { write } from './localStorage';
+import { destroy } from './localStorage';
+
 //carga de archivos
 import { v4 as uuidv4 } from 'uuid'; //id del usuario
 
@@ -59,6 +61,14 @@ const uploader = (submitSelector, imagesListSelector)=> {
 
       imageElement.src = await fileEntryPathToObjectUrl(image.path);
       label.value = image.name;
+
+      //eliminar img
+      deleteLink.addEventListener('click', e =>{
+        e.preventDefault();
+        destroy(image.id);
+        syncImages();
+      });
+      //fin del evento eliminar
 
       imageContainer.appendChild(deleteLink);
       imageContainer.appendChild(imageElement); //elemento de la img
