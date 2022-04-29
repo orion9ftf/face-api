@@ -18,6 +18,17 @@ const uploadFile = file => {
   })
 }
 
+//traer ruta de las img
+const fileEntryPathToObjectUrl = async fileEntryPath => {
+  return URL.createObjectURL(await new Promise((resolve, reject)=> {
+    window.requestFileSystem(window.TEMPORARY, 1024 * 1024, function(fs) {
+      fs.root.getFile(fileEntryPath, { create: true, exclusive: false }, function (fileEntry) {
+        fileEntry.file(resolve, reject)
+      }, e => console.log(e));
+    })
+  }))
+}
+
 const uploader = (submitSelector, imagesListSelector)=> {
   const submit = document.querySelector(submitSelector);
   const imagesList = document.querySelector(imagesListSelector);
@@ -38,7 +49,15 @@ const uploader = (submitSelector, imagesListSelector)=> {
       deleteLink.href = '#';
       deleteLink.innerText = 'x';
 
-      //status 
+      //status classList
+
+      imageElement.src = '';
+      label.value = image.name;
+
+      imageContainer.appendChild(deleteLink);
+      imageContainer.appendChild(imageElement); //elemento de la img
+      imageContainer.appendChild(label);
+      imagesList.appendChild(imageContainer);
     });
   }
 
@@ -54,7 +73,8 @@ const uploader = (submitSelector, imagesListSelector)=> {
         path: fileEntry.fullPath,
         name: (uuidv4()).toString()
       }
-    ]);
+    ])
+    syncImages();
   })
   //eventos
 }
