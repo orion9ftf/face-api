@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+.images-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .image-container {
+    border: 1px solid greenyellow;
+    width: 100;
+    padding: 9px;
+    margin: 15px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      width: 130px;
+    }
+    &.selected {
+      border-color: aquamarine;
+      border-width: 8px;
+    }
+    .cerrar {
+      text-decoration: none;
+      margin-left: 130px;
+      padding-left: -30px;
+      color: rgb(113, 207, 247);
+    }
+    a {
+      transition: all 0.5s;
+    }
+    a:hover {
+      color: red;
+    }
+    .status {
+      color: aquamarine;
+    }
+  }
+}
