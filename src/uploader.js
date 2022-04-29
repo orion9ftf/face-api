@@ -22,6 +22,16 @@ const uploader = (submitSelector, imagesListSelector)=> {
   const submit = document.querySelector(submitSelector);
   const imagesList = document.querySelector(imagesListSelector);
 
+  //formar el DOM de las img
+  const syncImages = () => {
+    read().forEach(async image =>{
+      const imageContainer = document.createElement('div');
+      const label = document.createElement('label');
+      const imageElement = document.createElement('img');
+
+    });
+  }
+
   submit.addEventListener('change', async e => {
     //console.log('change funciona!')
     const fileEntry = await uploadFile(e.target.files[0]);
