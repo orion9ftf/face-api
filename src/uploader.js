@@ -25,8 +25,16 @@ const uploader = (submitSelector, imagesListSelector)=> {
   submit.addEventListener('change', async e => {
     //console.log('change funciona!')
     const fileEntry = await uploadFile(e.target.files[0]);
-    
-    console.log(write({ path: 'ejemplo1' },{ path: 'ejemplo2' }));
+    //console.log(write({ path: 'ejemplo1' },{ path: 'ejemplo2' }));
+
+    write([
+      ...read(),
+      {
+        id: uuidv4(),
+        path: fileEntry.fullPath,
+        name: (uuidv4()).toString()
+      }
+    ]);
   })
   //eventos
 }

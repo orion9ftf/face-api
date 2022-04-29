@@ -2,7 +2,7 @@ const itemName = 'imagenes';
 
 const read = ()=> {
   const store = localStorage.getItem(itemName);
-  return store ? JSON.parse : []
+  return store ? JSON.parse(store) : []
 }
 
 const write = content =>{
